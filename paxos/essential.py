@@ -5,7 +5,7 @@ classes implement only the essential Paxos components and omit
 the practical considerations (such as durability, message
 retransmissions, NACKs, etc). 
 '''
-
+# 导入集合
 import collections
 
 # In order for the Paxos algorithm to function, all proposal ids must be
@@ -18,10 +18,10 @@ import collections
 # comparison. To simplify the code, we'll use "namedtuple" instances
 # from the collections module which allows us to write
 # "proposal_id.number" instead of "proposal_id[0]".
-#
+#定义ID号就是主节点的提案号UID/ID
 ProposalID = collections.namedtuple('ProposalID', ['number', 'uid'])
 
-
+# 定义类
 class Messenger (object):
     def send_prepare(self, proposal_id):
         '''
